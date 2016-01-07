@@ -2,14 +2,12 @@
 class Multiples
   def initialize(limit)
     @limit = limit
-#    @Multiples = Multiples || Array.new(limit)
-    @Multiples = Array.new(limit)
     @Multiples = []
   end
 
   def collect_multiples
     num = 1
-    while num < @limit  
+    while num < @limit
       if  num % 3 == 0 || num % 5 == 0
         @Multiples << num
       end
@@ -18,14 +16,11 @@ class Multiples
     return @Multiples
   end
 
-  def sum_multiples 
+  def sum_multiples
     sum = 0
-    num = 1
-    while num < @limit
-      if  num % 3 == 0 || num % 5 == 0
-        sum = sum + num
-      end
-      num += 1
+#    collect_multiples.inject (0) {|sum, x| sum + x}
+    collect_multiples.each do |num|
+      sum = sum + num
     end
     return sum
   end
